@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">NoteApp</string>
+
+    <string name="login">Login</string>
+    <string name="sign_up">SignUp</string>
+
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="welcome">Welcome!</string>
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="forget_password">Forget your password? </string>
+
+    <string name="title">Title</string>
+    <string name="date">Date</string>
+    <string name="color">Color</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+
+    <string name="add_note">Add note</string>
+    <string name="your_notes">Your Notes</string>
+    <string name="sorting">sorting</string>
+    <string name="delete_message">The note is deleted!</string>
+
+
+
+
+</resources>
