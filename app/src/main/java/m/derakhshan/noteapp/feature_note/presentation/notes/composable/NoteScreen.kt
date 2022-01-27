@@ -3,7 +3,6 @@ package m.derakhshan.noteapp.feature_note.presentation.notes.composable
 
 import androidx.compose.animation.*
 import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -19,14 +18,13 @@ import androidx.compose.material.icons.filled.Sort
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import kotlinx.coroutines.launch
 import m.derakhshan.noteapp.R
-import m.derakhshan.noteapp.core.presentation.composable.MainNavGraph
+import m.derakhshan.noteapp.core.presentation.MainNavGraph
 import m.derakhshan.noteapp.feature_note.presentation.notes.NoteEvents
 import m.derakhshan.noteapp.feature_note.presentation.notes.NoteViewModel
 import m.derakhshan.noteapp.ui.theme.VeryLightYellow

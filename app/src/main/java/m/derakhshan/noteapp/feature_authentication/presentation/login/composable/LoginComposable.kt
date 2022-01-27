@@ -29,7 +29,7 @@ import androidx.navigation.NavController
 import m.derakhshan.noteapp.R
 import m.derakhshan.noteapp.core.data.data_source.Setting
 import m.derakhshan.noteapp.core.presentation.composable.LoadingButton
-import m.derakhshan.noteapp.core.presentation.composable.MainNavGraph
+import m.derakhshan.noteapp.core.presentation.MainNavGraph
 import m.derakhshan.noteapp.feature_authentication.presentation.login.LoginEvents
 import m.derakhshan.noteapp.feature_authentication.presentation.login.LoginViewModel
 import m.derakhshan.noteapp.ui.theme.spacing

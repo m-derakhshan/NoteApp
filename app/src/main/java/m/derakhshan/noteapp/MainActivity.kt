@@ -11,7 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import dagger.hilt.android.AndroidEntryPoint
 import m.derakhshan.noteapp.core.data.data_source.Setting
-import m.derakhshan.noteapp.core.presentation.composable.MainNavGraph
+import m.derakhshan.noteapp.core.presentation.MainNavGraph
 import m.derakhshan.noteapp.feature_authentication.presentation.welcome.composable.Welcome
 import m.derakhshan.noteapp.feature_note.presentation.add_edit_note.composable.AddEditNoteScreen
 import m.derakhshan.noteapp.feature_note.presentation.notes.composable.NoteScreen

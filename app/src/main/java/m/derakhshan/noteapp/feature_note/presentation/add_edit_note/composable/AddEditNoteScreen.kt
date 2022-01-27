@@ -3,6 +3,9 @@ package m.derakhshan.noteapp.feature_note.presentation.add_edit_note.composable
 import androidx.compose.animation.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.*
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.draggable
+import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
@@ -20,10 +23,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import m.derakhshan.noteapp.core.presentation.composable.BackSwipeGesture
 import m.derakhshan.noteapp.feature_note.domain.model.Note
 import m.derakhshan.noteapp.feature_note.presentation.add_edit_note.AddEditNoteEvent
 import m.derakhshan.noteapp.feature_note.presentation.add_edit_note.AddEditNoteViewModel
 import m.derakhshan.noteapp.feature_note.presentation.add_edit_note.SnackBarEvent
+import m.derakhshan.noteapp.ui.theme.Black
 import m.derakhshan.noteapp.ui.theme.LightBlack
 import m.derakhshan.noteapp.ui.theme.spacing
 
@@ -38,6 +43,9 @@ fun AddEditNoteScreen(
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
     val scrollState = rememberScrollState()
+    var offset by remember {
+        mutableStateOf(0f)
+    }
 
     val backgroundAnimation = remember {
         Animatable(
@@ -55,14 +63,28 @@ fun AddEditNoteScreen(
         }
     })
 
-    Scaffold(scaffoldState = scaffoldState, floatingActionButton = {
-        FloatingActionButton(
-            onClick = { viewModel.onEvent(AddEditNoteEvent.Save) },
-            backgroundColor = MaterialTheme.colors.primary
-        ) {
-            Icon(imageVector = Icons.Filled.Save, contentDescription = "Save")
-        }
-    }) {
+    Scaffold(
+        scaffoldState = scaffoldState,
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = { viewModel.onEvent(AddEditNoteEvent.Save) },
+                backgroundColor = MaterialTheme.colors.primary
+            ) {
+                Icon(imageVector = Icons.Filled.Save, contentDescription = "Save")
+            }
+        },
+        modifier = Modifier.draggable(
+            orientation = Orientation.Horizontal,
+            state = rememberDraggableState(onDelta = { delta ->
+                offset += (delta * 0.2f)
+            }),
+            onDragStopped = {
+                if (offset > 90)
+                    navController.navigateUp()
+                offset = 0f
+            }
+        )
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -131,6 +153,14 @@ fun AddEditNoteScreen(
                     .padding(MaterialTheme.spacing.small)
             )
         }
+
+        BackSwipeGesture(
+            offset = offset, arcColor = Color(
+                ColorUtils.blendARGB(
+                    state.color, Black.toArgb(), 0.3f
+                )
+            )
+        )
     }
 
 }
