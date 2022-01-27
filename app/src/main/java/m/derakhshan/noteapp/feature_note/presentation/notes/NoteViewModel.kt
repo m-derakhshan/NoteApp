@@ -61,7 +61,6 @@ class NoteViewModel @Inject constructor(
                 )
             }
             is NoteEvents.ListScrollUp -> {
-                Log.i("Log", "onEvent: NoteViewModel scrolling up")
                 _state.value = _state.value.copy(
                     isAddNoteVisible = true
                 )
