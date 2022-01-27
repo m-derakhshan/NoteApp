@@ -50,7 +50,6 @@ class AddEditNoteViewModel @Inject constructor(
                     ),
                     color = note.color
                 )
-                Log.i("Log", "addEditNoteViewModel: color:${note.color}")
             }
         }
     }
@@ -92,25 +91,30 @@ class AddEditNoteViewModel @Inject constructor(
             }
             is AddEditNoteEvent.Save -> {
                 viewModelScope.launch {
+                    val note = Note(
+                        id = currentNoteID ?: setting.lastNoteId,
+                        title = _state.value.title.text,
+                        content = _state.value.content.text,
+                        color = _state.value.color,
+                        timestamp = System.currentTimeMillis()
+                    )
                     try {
                         useCases.insertNoteUseCase(
-                            Note(
-                                id = currentNoteID ?: setting.lastNoteId,
-                                title = _state.value.title.text,
-                                content = _state.value.content.text,
-                                color = _state.value.color,
-                                timestamp = System.currentTimeMillis()
-                            )
+                            note = note
                         )
                         _snackBar.emit(
                             SnackBarEvent.ShowSnackBar(
-                                message = "Note successfully inserted!"
+                                message = if (currentNoteID == null)
+                                    "Note successfully inserted!"
+                                else
+                                    "Note successfully updated!"
                             )
                         )
+                        currentNoteID = note.id
                     } catch (e: InvalidNoteException) {
                         _snackBar.emit(
                             SnackBarEvent.ShowSnackBar(
-                                message = e.message ?: "Can't insert note."
+                                message = e.message ?: "Unknown Error."
                             )
                         )
                     }

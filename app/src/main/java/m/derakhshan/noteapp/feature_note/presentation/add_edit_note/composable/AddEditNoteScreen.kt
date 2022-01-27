@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -90,6 +91,11 @@ fun AddEditNoteScreen(
                 .fillMaxSize()
                 .background(backgroundAnimation.value)
         ) {
+
+            IconButton(onClick = { navController.navigateUp() }) {
+                Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "Navigate Back")
+            }
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -128,6 +134,8 @@ fun AddEditNoteScreen(
 
                 }
             }
+
+
             Spacer(modifier = Modifier.padding(MaterialTheme.spacing.small))
             TransparentHintTextField(
                 text = state.title.text,
