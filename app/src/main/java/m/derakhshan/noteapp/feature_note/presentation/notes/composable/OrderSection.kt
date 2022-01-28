@@ -8,7 +8,6 @@ import androidx.compose.ui.res.stringResource
 import m.derakhshan.noteapp.R
 import m.derakhshan.noteapp.feature_note.domain.utils.NoteOrder
 import m.derakhshan.noteapp.feature_note.domain.utils.OrderType
-import m.derakhshan.noteapp.feature_note.presentation.notes.composable.DefaultRadioButton
 import m.derakhshan.noteapp.ui.theme.spacing
 
 @Composable
