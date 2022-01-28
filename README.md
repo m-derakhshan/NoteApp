@@ -18,7 +18,7 @@ below is list of some project features:
     
 
 ## Technical Information
-*This project was developed using Kotlin language with MVVM architecture.
-*The clean architecture is also considered.
-*Hilt is used as dependency injection library.
-*All screens are created using compose functions, hence the compose navigation is used as way of navigating between screens.
+* This project was developed using Kotlin language with MVVM architecture.
+* The clean architecture is also considered.
+* Hilt is used as dependency injection library.
+* All screens are created using compose functions, hence the compose navigation is used as way of navigating between screens.
