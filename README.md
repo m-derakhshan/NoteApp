@@ -22,3 +22,6 @@ below is list of some project features:
 * The clean architecture is also considered.
 * Hilt is used as dependency injection library.
 * All screens are created using compose functions, hence the compose navigation is used as way of navigating between screens.
+
+## here you can see a short view of the app:
+[NoteAppShortVideo](https://bit.ly/noteApp1) 
