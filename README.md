@@ -24,4 +24,4 @@ below is list of some project features:
 * All screens are created using compose functions, hence the compose navigation is used as way of navigating between screens.
 
 ## here you can see a short view of the app:
-[NoteAppShortVideo](https://bit.ly/noteApp1) 
+[NoteAppShortVideo](https://bit.ly/noteApp2) 
